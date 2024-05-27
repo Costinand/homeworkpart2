@@ -1,8 +1,8 @@
-def test(a, b):
+def test(a = 12, b = 14):
     print(a, b)
 
 
-test(12, 14)
+test()
 
 def test2(a, b, c):
     print(a, b, c)
