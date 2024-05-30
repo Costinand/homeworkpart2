@@ -1,14 +1,10 @@
-def test(a, b):
-    print(a, b)
+from fake_math import divide as f_d
+from true_math import divide as t_d
 
-a = 14
-b = 12
+num_ar = [57, 6], [14, 0]
+for i in num_ar:
+    first = i[0]
+    second = i[1]
+    f_d(first, second)
+    t_d(first, second)
 
-test(a, b)
-
-def test2(a, b, c):
-    print(a, b, c)
-    print(a + b)
-    print(a - c)
-
-test2(10, 20, 30)
