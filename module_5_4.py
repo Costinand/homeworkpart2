@@ -1,15 +1,12 @@
-total_str = []
+class Buiilding:
+    total = 0
 
-class Building:
+    def __init__(self):
+        Buiilding.total += 1
 
-    def __init__(self, total):
-
-        for i in range(total):
-            total_str.append("Home_" + str(i + 1))
-
-new_luzhki = Building(40)
-
-print(total_str)
-
+for i in range(40):
+    obj = Buiilding()
+    print(obj)
+print(Buiilding.total)
 
 
