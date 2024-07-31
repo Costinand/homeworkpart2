@@ -1,26 +1,22 @@
+
 def all_variants(text):
-    n = 0
-    n1 = 1
+    n = -1  # для перемещения по строке
+    n2 = 0  # для увеличения длинны
+    k = 0   # для расчета обрезков
 
-    for i in text:
-        n += 1
-        n1 += 1
+    for i in text: #  првый цикл служит лишь для создания повторов второго цикла (хоть и пербирает строку)
+        k += 1
+        n = -1
+        n2 += 1
 
-        if n == 1:
-            for i in text:
-                yield i
-        if n == 2:
-            for i in text:
-                if  n1 < 5:
-                    yield i + text[n-1]
-                    n = 3
-                    n1 += 1
-                else: pass
+        for b in text:  # второй цикл на каждом новом повторе увеличивает длину среза(печатаемой строки)
+            n += 1
+            b = text[n: n + n2]
+            if len(b) < k:
+                pass
+            else:
+                yield b # здесь отправляем результат работы
 
-            yield text
-
-x = 0
-a = all_variants("abc")
-for i in a:
-    x += 1
+a = all_variants("abcdef") #  обращение к функции происходит от указания принадлености объекта к ней
+for i in a:     # здесь распаковываем для просмотра
     print(i)
