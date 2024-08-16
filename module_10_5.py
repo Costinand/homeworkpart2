@@ -37,10 +37,8 @@ print(end - start)
 # МУЛЬТИПРОЦЕССОРНОЕ ИСПОЛНЕНИЕ
 # if __name__ == '__main__':
 #     with multiprocessing.Pool(processes = 4) as pool:
-#         # print(filenames)
 #         start = datetime.datetime.now()
-#         filename = filenames
-#         pool.map(read_info, ['./file 1.txt', './file 2.txt', './file 3.txt', './file 4.txt'])
+#         pool.map(read_info, filenames)
 #     end = datetime.datetime.now()
 #     print(end - start)
 
