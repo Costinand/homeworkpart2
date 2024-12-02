@@ -1,19 +1,20 @@
-
+from pprint import pprint
 import inspect
-
-info = {} # словарь интроспекции
 
 class Test():
     def __init__(self, value):
         self.object = object
-
 def introspection_info(obj):
-
-    info[type.__name__] = type(obj)  # добавленик в словарь info четырех параметров
-    info['methods'] = [method for method in dir(obj) if callable(getattr(obj, method))] # методы - это вызываемый вид атрибутов
-    info['attributes'] = dir(obj) #  атрибуты , как я понял, номинально вызываемые , но в заданных параметрах вызвать нельзя
-    info['module'] = inspect.getmodule(obj)
-    print('')
+    obj_type = type(obj)
+    obj_module = obj.__class__.__module__
+    obj_attributes = []
+    obj_methods = []
+    for attr in dir(obj):
+        if callable(getattr(obj, attr)):
+            obj_methods.append(attr)
+        elif not callable(getattr(obj, attr)):
+            obj_attributes.append(attr)
+    info = {'type': obj_type,'module': obj_module, 'attributes': obj_attributes, 'methods': obj_methods, }
     return info
 
 obj1 = Test(10)
